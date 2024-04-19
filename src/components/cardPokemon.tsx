@@ -3,16 +3,18 @@ import { Platform } from "react-native";
 
 const getTypeDetails = (type) => {
   switch (type.toLowerCase()) {
-    case "electric":
-      return { borderColor: "#FFD700", emoji: "⚡️" };
-    case "water":
-      return { borderColor: "#6493EA", emoji: "💧" };
-    case "fire":
-      return { borderColor: "#FF5733", emoji: "🔥" };
-    case "grass":
-      return { borderColor: "#66CC66", emoji: "🌿" };
-    default:
-      return { borderColor: "#A0A0A0", emoji: "❓" };
+    case "Fada":
+      return { borderColor: "#f095e4", emoji: "𓍢ִ໋🌷͙֒" };
+    case "Fada e Aço":
+      return { borderColor: "#b486b2", emoji: "🌷͙⚙️" };
+    case "Fada e Água":
+      return { borderColor: "#826cd1", emoji: "🌷💧" };
+    case "Sombrio":
+      return { borderColor: "#32253a", emoji: "☪" };
+    case "Água":
+      return { borderColor: "#63bcf8", emoji: "💧" };
+    case "Psíquico":
+      return { borderColor: "#ee6e6e", emoji: "🔮" };
   }
 };
 
@@ -20,7 +22,7 @@ export default function PokemonCard({
   name,
   image,
   type,
-  hp,
+  hp_maximo,
   moves,
   weaknesses,
 }) {
@@ -29,7 +31,7 @@ export default function PokemonCard({
     <View style={styles.card}>
       <View style={styles.nameContainer}>
         <Text style={styles.name}>{name}</Text>
-        <Text style={styles.hp}>❤️HP: {hp}</Text>
+        <Text style={styles.hp}>❤️HP: {hp_maximo}</Text>
       </View>
 
       <Image

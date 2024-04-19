@@ -15,7 +15,7 @@ const Lendarios = (props) =>{
   const mightyena = {
     name: "Mightyena",
     image: require("../../assets/Mightyena.png"), 
-    type: "Sombrio e Aço",
+    type: "Sombrio",
     hp_maximo: 110,
     moves: ["Bite", "Play Rough", "Ice Fang", "Crunch"],
     weaknesses: ["Lutador", "Inseto", "Fada"],
@@ -24,7 +24,7 @@ const Lendarios = (props) =>{
   const zorua = {
     name: "Zorua",
     image: require("../../assets/zorua.png"), 
-    type: "Sombra e Água",
+    type: "Sombrio",
     hp_maximo: 250,
     moves: ["Feint Attack", "Foul Play", "Dark Pulse"],
     weaknesses: ["Lutador", "Inseto", "Fada"],
