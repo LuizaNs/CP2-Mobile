@@ -1,7 +1,7 @@
 import { StyleSheet, SafeAreaView, Platform, ScrollView } from "react-native";
+import CardPokemon from './cardPokemon';
 
-
-const Lendarios = (props) =>{
+const Fadas = (props) =>{
 
   const sylveon = {
     name: "Sylveon",
@@ -30,4 +30,22 @@ const Lendarios = (props) =>{
     weaknesses: ["Grama", "Elétrico", "Veneno"],
   };
 
+  return (
+    <ScrollView contentContainerStyle={styles.container}>
+      <CardPokemon {...sylveon} />
+      <CardPokemon {...mawile} />
+      <CardPokemon {...primarina} />
+    </ScrollView>
+  );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flexGrow: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
+
+export default Fadas;
+

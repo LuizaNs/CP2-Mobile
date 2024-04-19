@@ -1,37 +1,22 @@
-import { StyleSheet, SafeAreaView, Platform, ScrollView } from "react-native";
-import cardPokemon from "./src/components/cardPokemon";
-import Fadas from "./src/screens/Fadas"
-import Sombrios from "./src/screens/Sombrios"
-import Lendarios from "./src/screens/Lendarios"
-import Inicial from "./src/screens/Inicial"
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import Fadas from './src/screens/Fadas';
+import Sombrios from './src/screens/Sombrios';
+import Lendarios from './src/screens/Lendarios';
+import PaginaInicial from './src/screens/Inicial';
 
-const Stack = createStackNavigator()
- 
-const App = () =>{
- 
-  return(
-<NavigationContainer>
-<Stack.Navigator>
-<Stack.Screen 
-          name=''
-          component={TelaInicial}
-          options={{headerShown:false}}
-        />
-<Stack.Screen name='TelaResultado' component={TelaResultado}
-          options={{headerShown:false}}
-        />
-<Stack.Screen name='TelaDetalhes' component={TelaDetalhes}/>
-</Stack.Navigator>
-</NavigationContainer>
-  )
+const Stack = createStackNavigator();
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Inicial">
+        <Stack.Screen name="Inicial" component={PaginaInicial} options={{ title: 'Página Inicial' }} />
+        <Stack.Screen name="Fadas" component={Fadas} options={{ title: 'Página de Fadas' }} />
+        <Stack.Screen name="Sombrios" component={Sombrios} options={{ title: 'Página de Sombrios' }} />
+        <Stack.Screen name="Lendarios" component={Lendarios} options={{ title: 'Página de Lendários' }} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }
- 
-export default App
-
-
-
-
-
-
-
-

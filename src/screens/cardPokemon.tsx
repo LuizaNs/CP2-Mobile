@@ -18,7 +18,7 @@ const getTypeDetails = (type) => {
   }
 };
 
-export default function PokemonCard({
+export default function cardPokemon({
   name,
   image,
   type,
