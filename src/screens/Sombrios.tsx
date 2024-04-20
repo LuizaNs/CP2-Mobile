@@ -1,43 +1,54 @@
-import { StyleSheet, SafeAreaView, Platform, ScrollView } from "react-native";
-import CardPokemon from './cardPokemon';
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, ScrollView } from 'react-native';
+import CardPokemon from '../../components/cardPokemon';
 
+const Sombrios = (props) => {
+  const [pokemons, setPokemons] = useState([]);
 
-const Sombrios = (props) =>{
+  useEffect(() => {
+    const loadSombrios = async () => {
 
-  const nickit = {
-    name: "Nickit",
-    image: require("../../assets/nickit.png"),
-    type: "Sombrio",
-    hp_maximo: 70,
-    moves: ["Snarl", "Play Rought"],
-    weaknesses: ["Lutador", "Inseto", "Fada"],
-  };
+      const sombriosData = [
+        {
+          name: 'Nickit',
+          image: require('../../assets/nickit.png'),
+          type: 'Sombrio',
+          hp_maximo: 70,
+          moves: ['Snarl', 'Play Rought'],
+          fraquezas: ['Lutador', 'Inseto', 'Fada'],
+        },
+        {
+          name: 'Mightyena',
+          image: require('../../assets/Mightyena.png'),
+          type: 'Sombrio',
+          hp_maximo: 110,
+          moves: ['Bite', 'Play Rough', 'Ice Fang', 'Crunch'],
+          fraquezas: ['Lutador', 'Inseto', 'Fada'],
+        },
+        {
+          name: 'Zorua',
+          image: require('../../assets/zorua.png'),
+          type: 'Sombrio',
+          hp_maximo: 250,
+          moves: ['Feint Attack', 'Foul Play', 'Dark Pulse'],
+          fraquezas: ['Lutador', 'Inseto', 'Fada'],
+        },
+      ];
 
-  const mightyena = {
-    name: "Mightyena",
-    image: require("../../assets/Mightyena.png"), 
-    type: "Sombrio",
-    hp_maximo: 110,
-    moves: ["Bite", "Play Rough", "Ice Fang", "Crunch"],
-    weaknesses: ["Lutador", "Inseto", "Fada"],
-  };
+      setPokemons(sombriosData);
+    };
 
-  const zorua = {
-    name: "Zorua",
-    image: require("../../assets/zorua.png"), 
-    type: "Sombrio",
-    hp_maximo: 250,
-    moves: ["Feint Attack", "Foul Play", "Dark Pulse"],
-    weaknesses: ["Lutador", "Inseto", "Fada"],
-  };
+    loadSombrios();
+  }, []);
+
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <CardPokemon {...nickit} />
-      <CardPokemon {...mightyena} />
-      <CardPokemon {...zorua} />
+      {pokemons.map((pokemon, index) => (
+        <CardPokemon key={index} {...pokemon} />
+      ))}
     </ScrollView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
